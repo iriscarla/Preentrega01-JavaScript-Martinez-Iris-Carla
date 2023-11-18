@@ -1,4 +1,5 @@
-let menuInicio = prompt('Bienvenido al bar! Puede optar por: \n a: Ver la carta de papas \n b. Catalogo de cervezas  \n c. Quiero salir  ');
+ // Inicio: da la bienvendida al usuaario y muestra las opciones de menú 
+ let menuInicio = prompt('Bienvenido al bar! Puede optar por: \n a: Ver la carta de papas \n b. Catalogo de cervezas  \n c. Ver carta de pizzas \n d. Quiero salir    ');
 
 if (menuInicio !== undefined && menuInicio !== '') {
     if (menuInicio.trim().toLocaleLowerCase() == 'a') {
@@ -6,17 +7,21 @@ if (menuInicio !== undefined && menuInicio !== '') {
     }
     else if (menuInicio.trim().toLocaleLowerCase() == 'b') {
         mostarCartaCervezas()
+        recorreCervezasporNombre ()
+        
     }
-    else if (menuInicio == 'c') {
+    else if (menuInicio.trim().toLocaleLowerCase() == 'c'){
+        mostarCartaPizzas()
+    }
+    else if (menuInicio == 'd') {
         alert('Chau')
     }
     else {
         alert('Esperamos verte de nuevo pronto! 🎉')
     }
-}
+} 
 
-
-//Funcion para ver la carta de papas.
+ //Funcion para ver la carta de papas.
 function mostarCartaPapas() {
     let eleccionCliente = prompt('Puede elegir entre \n 1: Papas Clásicas \n 2. Papas Americanas  \n 3. Papas con Cheddar \n 4. Salchipapas \n 5: Para SALIR');
 
@@ -48,12 +53,10 @@ function mostarCartaPapas() {
 
     }
 }
-
-
 //Funcion para ver la carta de cervezas.
- function mostarCartaCervezas() {
+function mostarCartaCervezas() {
     let beer = prompt('Puede elegir entre \n 1: APA \n 2. IPA  \n 3. Golden \n 4. Irish Red \n 5. Barley Wine \n 5: Para SALIR');
-    if (beer!== null || undefined || false)
+    if (beer !== null || undefined || false)
         while (beer !== '5') {
 
             switch (beer) {
@@ -70,42 +73,123 @@ function mostarCartaPapas() {
                     break
 
                 case '4':
-                    alert("Ud. ordenó: Cerveza Irish Red $ 1300");
+                    alert(" Cerveza Irish Red $ 1300");
                     break
 
                 case '5':
-                    alert("Ud. ordenó: Cerveza Barley Wine $ 1350");
+                    alert(" Cerveza Barley Wine $ 1350");
                     break
 
                 default:
                     alert("Elige una opción válida por favor.");
             }
-            beer = prompt('Puede elegir entre \n 1: Cerveza Rubia \n 2. Cerveza Negra  \n 3. Cerveza Roja \n 5: Para SALIR');
+            beer = prompt('Puede elegir entre \n 1: APA \n 2. IPA  \n 3. Golden \n 4. Irish Red \n 5. Barley Wine \n 5: Para SALIR');
 
         }
 
 }
+//funcion para ver la carta de pizzas:
+function mostarCartaPizzas() {
+    let eleccionCliente = prompt('Puede elegir entre \n 1: MOZZARELLA \n 2. RUCULA  \n 3. QUESOS \n 4. NAPOLITANA \n 5: Para SALIR');
+
+    if (eleccionCliente !== null || undefined || false) {
+        while (eleccionCliente !== '5') {
+
+            switch (eleccionCliente) {
+                case '1':
+                    alert("MOZZARELLA $4479");
+                    break
+
+                case '2':
+                    alert("RUCULA con Jamon Crudo $ 5000");
+                    break
+
+                case '3':
+                    alert("4 QUESOS $ 4800");
+                    break
+
+                case '4':
+                    alert("NAPOLITANA $4799");
+                    break
+
+                default:
+                    alert("Elige una opción válida por favor.");
+            }
+            eleccionCliente = prompt('Puede elegir entre \n 1: MOZZARELLA \n 2. RUCULA  \n 3. QUESOS \n 4. NAPOLITANA \n 5: Para SALIR');
+        }
+
+    }
+} 
+
+
+//*******BUSCARDOR****** Funcion para buscar algo (simula un buscador de productos)
+function buscador() {
+    let busquedaUsuario = prompt('BUSCADOR: Para buscar por nombre ingrese: *1.CERVEZA *2.PAPAS *3.PIZZAS');
+
+    if (busquedaUsuario.trim() == '1') {
+        buscarCerveza()
+    }
+    else if (busquedaUsuario.trim() == '2') {
+        buscarPapas()
+    }
+    else if (busquedaUsuario.trim() == '3') {
+        buscarPizzas()
+    }
+}
 
 // Funcion para buscar una cerveza por nombre
-function buscarCerveza (nombre){
 
-     const filtrado = cerverzas.filter((cerveza) => cerveza.nombre.includes(nombre));
-     return filtrado;
-    ;
+function buscarCerveza() {
+    let nombreIngresadoBeer = prompt('¿Qué cerveza busca?')
+
+    if (nombreIngresadoBeer) {
+        const filtrado = cerverzas.find((cerveza) => cerveza.nombre.includes(nombreIngresadoBeer.toUpperCase()));
+        if (filtrado) {
+            console.table(filtrado)
+        }
+        else {
+            console.warn("No se encuentra el producto, intente otro nombre" )
+        }
+    }
+}
+
+// Funcion para buscar una papas por nombre
+function buscarPapas() {
+    let nombreIngresadoPapa = prompt('¿Qué papas busca?')
+
+    if (nombreIngresadoPapa) {
+        const filtrado = papas.find((papa) => papa.nombre.includes(nombreIngresadoPapa.toUpperCase()));
+        if (filtrado) {
+            console.table(filtrado)
+        }
+        else {
+            console.warn("No se encuentra el producto, intente otro nombre" )
+        }
+
+    }
+}
+
+// Funcion para buscar una cerveza por nombre
+
+function buscarPizzas() {
+    let nombreIngresadoPizza = prompt('¿Qué pizza busca?')
+
+    if (nombreIngresadoPizza) {
+        const filtrado = pizzas.find((pizza) => pizza.nombre.includes(nombreIngresadoPizza.toUpperCase()));
+        if (filtrado) {
+            console.table(filtrado)
+        }
+        else {
+            console.warn("No se encuentra el producto, intente otro nombre" )
+        }
+    }
 }
 
 
-
-
-
-// funcion para añadir al carrito
-const carrito = [];
-
-function agregarAlCarrito (){
-
+//prueba
+function recorreCervezasporNombre (){
+    cerverzas.forEach((cerveza)=> console.table (cerveza.nombre))
 }
-
-
 
 
 
@@ -142,9 +226,6 @@ function elegirCartaPapas() {
 }
 
 
-
-
-
 function eleccionEnvio() {
     let envio = confirm('Desea envio a domicilio');
 
@@ -155,14 +236,6 @@ function eleccionEnvio() {
         alert('Puedes pasar a retirar por el local');
     }
 }
-
-//-----------Desde aca el inicio
-
-
-
-
-
-
 
 
 

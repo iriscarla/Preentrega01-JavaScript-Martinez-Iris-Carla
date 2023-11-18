@@ -1,21 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--Css-->
-    <link rel="stylesheet" href="style.css">
-    <!--Scripts-->
-    <script defer src="/scripts/productos.js"></script>
-    <script defer src="/scripts/scripts.js"></script>
-    <title>Curso de Javascript</title>
-</head>
-<body>
-    <h1>Primera preentrega </h1>
-    <h2>Alumna: Martínez Iris Carla</h2>
-    <p>Comisión: 49775</p>
-    <img src="/carrousel03.jpg" alt="">
+    <!--Boostrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
-    
+    <!--google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=AR+One+Sans:wght@500&family=EB+Garamond:wght@600&display=swap"
+        rel="stylesheet">
+    <!--css-->
+    <link rel="stylesheet" href="./css/style.css">
+     <!--JS-->
+     <script defer src="/scripts/productos.js"></script>
+     <script defer src="/scripts/scripts.js"></script>
+    <title>Inicio | Rock and Beer </title>
+</head>
+
+
+<body id="index-body">
+
+    <!--Header Section-->
+    <header id="index-header">
+        <div class="index-logo">
+
+            <img src="./images/logo.png" alt="">
+            <a href="index.html"> </a>
+        </div>
+
+        <nav class="nav-barr">
+            <ul class="list">
+                <li> 
+                    <a href="index.html">Inicio</a> 
+                </li>
+
+                <li> 
+                    <a href="#container-main-description"> Quienes Somos</a> 
+                </li>
+
+                <li> 
+                    <a href=""> Shop</a>
+                </li>
+
+            </ul>
+        </nav>
+    </header>
+
+
+
+
+    <!--Article Section-->
+    <article id="index-content-page">
+        <video  loop muted src="images/cerveza-video.mp4"></video>
+
+
+        <div class="text-over-header">
+            <h1 class="text-h1">
+                Preentrega N° 2.
+                JavaScript
+            </h1>
+            <p>Alumna: Martínez Iris Carla</p>
+            <h2>
+                
+            </h2>
+
+            <p class="text">
+                *El proyecto cuenta con un documento.js denominado "productos", donde se encuentran 3 arrays simulando una base de datos con productos a vender
+                
+            </p>
+            <p>Para iniciar el buscador, ejecutar en consola la función: <strong>buscador () </strong> </p>
+
+           
+        </div>
+    </article>
+
+
+   
+
+
+        
+    <!--Bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
